@@ -12,7 +12,7 @@ return [
                 // （必须）标题
                 'title'=>'Api接口',
                 // （必须）控制器目录地址
-                'path'=>'app\controller',
+                'path'=>'app\api\controller',
                 // （必须）唯一的key
                 'key'=>'api',
             ]
