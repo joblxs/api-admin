@@ -4,20 +4,18 @@ namespace app\api\controller;
 use support\Request;
 use hg\apidoc\annotation as Apidoc;// 必须的
 
-/**
- * @Apidoc\Title("user示例")
- */
+#[Apidoc\Title("user示例")]
 class UserController
 {
-    /**
-     * @Apidoc\Title("请求user接口")
-     * @Apidoc\Tag("示例")
-     * @Apidoc\Method ("GET")
-     * @Apidoc\Url ("/api/user/hello")
-     * @Apidoc\Query("name", type="string",require=true, desc="姓名",mock="@name")
-     * @Apidoc\Query("phone", type="string",require=true, desc="手机号",mock="@phone")
-     * @Apidoc\Returned("id", type="int", desc="Id")
-     */
+    #[
+        Apidoc\Title("请求user接口"),
+        Apidoc\Tag("示例"),
+        Apidoc\Method("GET"),
+        Apidoc\Url("/api/user/hello"),
+        Apidoc\Query(name:"name",type: "string",require: true,desc: "姓名",mock:"@name"),
+        Apidoc\Query(name:"phone",type: "string",require: true,desc: "手机号",mock:"@phone"),
+        Apidoc\Returned("id",type: "int",desc: "Id"),
+    ]
     public function hello(Request $request)
     {
         $default_name = 'webman';
