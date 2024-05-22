@@ -7,7 +7,7 @@ use hg\apidoc\annotation as Apidoc;// 必须的
 use yzh52521\EasyHttp\Http;
 
 #[Apidoc\Title("兰空图床")]
-class lskyController
+class LskyController
 {
     // 接口URL
     private static $apiUrl = "https://pic.lxshuai.top/api/v1";
@@ -156,6 +156,14 @@ class lskyController
                 $randomImage = '';
                 if (count($imageArr) > 0) {
                     $randomImage = $imageArr[array_rand($imageArr)];
+                    $imageData = file_get_contents($randomImage);
+                    if ($imageData === false) {
+                        return json($randomImage);
+                    }
+                    // header('Content-Type: image/webp');
+                    // 输出图片内容
+                    // echo $imageData;
+                    return $imageData;
                 }
                 return json($randomImage);
             }
