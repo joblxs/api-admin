@@ -156,16 +156,8 @@ class LskyController
                 $randomImage = '';
                 if (count($imageArr) > 0) {
                     $randomImage = $imageArr[array_rand($imageArr)];
-                    $imageData = file_get_contents($randomImage);
-                    if ($imageData === false) {
-                        return json($randomImage);
-                    }
-                    // header('Content-Type: image/webp');
-                    // 输出图片内容
-                    // echo $imageData;
-                    return $imageData;
                 }
-                return json($randomImage);
+                return redirect($randomImage);
             }
             return json($response->status());
         } catch (ErrorException $e) {
